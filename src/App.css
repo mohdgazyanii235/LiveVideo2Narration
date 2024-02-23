@@ -13,9 +13,12 @@ h1 {
   color: #BDBDBD;
 }
 
+h2 {
+  font-size: 30px;
+}
+
 .actionScreen {
   background-color: #BDBDBD;
-  justify-content: center;
   align-items: center;
   width: 1000px;
   position: absolute;
@@ -29,4 +32,30 @@ h1 {
 .userFeed {
   border-radius: 20px;
   width: 500px;
+  margin-top: 20px;
+  
+}
+
+.userFeedWrapper {
+  height: 100%;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.logScreenWrapper {
+  width: 440px;
+  height: 100%;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.logScreen {
+  text-align: left;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  height: 500px;
 }

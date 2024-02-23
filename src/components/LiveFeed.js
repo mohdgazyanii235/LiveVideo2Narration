@@ -1,15 +1,17 @@
 import React, { useRef, useEffect } from "react";
+import fetchNarration from "./OpenAi";
 
-function LiveFeed() {
+
+function LiveFeed({ onCapture }) {
     const videoRef = useRef(null);
+    const canvasRef = useRef(document.createElement("canvas")); // Create a canvas element
 
     useEffect(() => {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             const constraints = {
-                video: true, // This is to request access to video only.
+                video: true,
             };
 
-            // Request access to webcam.
             navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream;
@@ -17,19 +19,41 @@ function LiveFeed() {
             }).catch((error) => {
                 console.error('Error accessing the camera: ', error);
             });
+
+            const takeSnapshot = () => {
+                if (videoRef.current) {
+                    const video = videoRef.current;
+                    const canvas = canvasRef.current;
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+
+                    const context = canvas.getContext('2d');
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    
+                    const imageData = canvas.toDataURL('image/png');
+                    // console.log(imageData);
+                    // onCapture(imageData);
+                    fetchNarration(imageData).then(narration => onCapture(narration));
+                    
+                }
+            };
+
+            // Set interval to take snapshot every 20 seconds
+            const intervalId = setInterval(takeSnapshot, 5000);
+
+            return () => {
+                clearInterval(intervalId);
+                if (videoRef.current && videoRef.current.srcObject) {
+                    const tracks = videoRef.current.srcObject.getTracks();
+                    tracks.forEach(track => track.stop());
+                }
+            };
         } else {
-            console.error('Your browswer does not support user media');
+            console.error('Your browser does not support user media');
         }
+    }, [onCapture]);
 
-        return () => {
-            if (videoRef.current && videoRef.current.srcObject) {
-                const tracks = videoRef.current.srcObject.getTracks();
-                tracks.forEach(track => track.stop());
-            }
-        };
-    }, []);
-
-    return <video className="userFeed" ref={videoRef} autoPlay playsInline />
-};
+    return <video className="userFeed" ref={videoRef} autoPlay playsInline />;
+}
 
 export default LiveFeed;
