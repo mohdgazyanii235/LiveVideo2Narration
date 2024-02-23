@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Live Video To Narration
+Welcome to the "Live Video To Narration" project, an interactive experience that combines the power of AI with the charm of Morgan Freeman's narration. This project captures snapshots from your webcam feed and uses advanced AI to provide a live narration of the scene, mimicking the style of the beloved actor's iconic voice.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+Our ReactJS-based application taps into the webcam, periodically taking snapshots. These images are then sent to OpenAI's powerful GPT-4 model, designed to generate descriptive and engaging narrations. We leverage ElevenLabs' technology to convert this text into audio that sounds like Morgan Freeman, providing you with a unique storytelling experience of your surroundings.
 
-## Available Scripts
+## Technologies Used
+ReactJS: A JavaScript library for building user interfaces, ensuring a smooth and responsive client-side experience.
+OpenAI: Utilizing the GPT-4-vision-preview model to interpret images and generate creative, detailed descriptions.
+ElevenLabs: A cutting-edge text-to-speech platform that brings the narrations to life with voice synthesis.
 
-In the project directory, you can run:
+### Features
+Webcam Integration: Seamless access to your computer's webcam to capture live video.
+Snapshot Mechanism: Automated process to take snapshots at set intervals from the live video feed.
+AI-Powered Descriptions: Utilization of OpenAI to analyze images and craft narrations that describe the mood, context, and story of the snapshots.
+Realistic Voice Narration: Integration with ElevenLabs to synthesize the AI-generated text into audio narrations in the style of Morgan Freeman.
+How to Use
 
-### `npm start`
+### Setup:
+Clone the repository to your local machine.
+Install the required dependencies using npm install.
+Environment Configuration:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Set up .env.local with your OpenAI API key and ElevenLabs credentials.
+Running the Application:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Start the application using npm start.
+Grant the necessary permissions to access your webcam.
+Enjoy Live Narration:
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The application will automatically begin capturing images.
+AI-generated narrations will play back, providing a description of each captured scene.
+Contribution
+Contributions to enhance "Live Video To Narration" are welcome. Whether it's feature requests, bug fixes, or improvements to the documentation, please feel free to fork the repository and submit a pull request.
