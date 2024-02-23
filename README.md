@@ -1,4 +1,4 @@
-# Live Video To Narration
+# Live Video 2 Narration
 Welcome to the "Live Video To Narration" project, an interactive experience that combines the power of AI with the charm of Morgan Freeman's narration. This project captures snapshots from your webcam feed and uses advanced AI to provide a live narration of the scene, mimicking the style of the beloved actor's iconic voice.
 
 ## Overview
