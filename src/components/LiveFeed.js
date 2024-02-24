@@ -1,10 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import fetchNarration from "./OpenAi";
+import fetchSpeech from "./ElevenLabs";
 
 
 function LiveFeed({ onCapture }) {
     const videoRef = useRef(null);
     const canvasRef = useRef(document.createElement("canvas")); // Create a canvas element
+    const interval = 100000;
 
     useEffect(() => {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -33,13 +35,16 @@ function LiveFeed({ onCapture }) {
                     const imageData = canvas.toDataURL('image/png');
                     // console.log(imageData);
                     // onCapture(imageData);
-                    fetchNarration(imageData).then(narration => onCapture(narration));
+                    fetchNarration(imageData).then(narration => {
+                        onCapture(narration);
+                        fetchSpeech(narration);
+                    });
                     
                 }
             };
 
             // Set interval to take snapshot every 20 seconds
-            const intervalId = setInterval(takeSnapshot, 5000);
+            const intervalId = setInterval(takeSnapshot, interval);
 
             return () => {
                 clearInterval(intervalId);
