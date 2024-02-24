@@ -32,6 +32,10 @@ Environment Configuration:
 Set up .env.local with your OpenAI API key and ElevenLabs credentials.
 Running the Application:
 
+REACT_APP_OPENAI_API_KEY=<openai api key>
+REACT_APP_ELEVENLABS_API_KEY=<elevenlabs api key>
+REACT_APP_VOICE_ID=<elevenlabs voice id (For Morgan Freeman's voice use Okele's voice)>
+
 Start the application using npm start.
 Grant the necessary permissions to access your webcam.
 Enjoy Live Narration:
@@ -40,3 +44,7 @@ The application will automatically begin capturing images.
 AI-generated narrations will play back, providing a description of each captured scene.
 Contribution
 Contributions to enhance "Live Video To Narration" are welcome. Whether it's feature requests, bug fixes, or improvements to the documentation, please feel free to fork the repository and submit a pull request.
+
+
+## Proof of work!
+![here's a proof of this working live!](/public/working_screen_shot.PNG)
